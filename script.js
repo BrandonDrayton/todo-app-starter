@@ -3,7 +3,7 @@
 console.log(todoItems)
 
 const completedList = document.querySelector("#complete-items")
-const uncompletedList = document.querySelector("#incomplete-items")
+const incompleteList = document.querySelector("#incomplete-items")
 // const checkMark = document.getElementById("#flexCheckChecked")
 
 for (let item of todoItems) {
@@ -16,7 +16,7 @@ for (let item of todoItems) {
     const label = document.createElement("label")
     // currentItem.innerHTML += " " + item.title
     label.innerText = item.title
-    label.classList.add("form-check-label", "ps=3")
+    label.classList.add("form-check-label", "ps-3")
     currentItem.appendChild(label)
 
 
@@ -25,7 +25,7 @@ for (let item of todoItems) {
         checkbox.checked = true
     }
     else {
-        uncompletedList.appendChild(currentItem)
+        incompleteList.appendChild(currentItem)
     }
 }
 
