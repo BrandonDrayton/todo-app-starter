@@ -34,6 +34,21 @@ todoForm.addEventListener("submit", (e) => {
     currentItem.appendChild(label)
     incompleteList.appendChild(currentItem)
     console.log(newTask)
+
+    checkbox.addEventListener("click", (e) => {
+        if (checkbox.checked) {
+            completedList.appendChild(currentItem)
+        } else incompleteList.appendChild(currentItem)
+
+    })
+})
+
+const checkbox = document.createElement("input")
+checkbox.addEventListener("click", (e) => {
+    if (checkbox.checked) {
+        completedList.appendChild(e)
+    } else incompleteList.appendChild(e)
+
 })
 
 
