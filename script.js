@@ -6,7 +6,7 @@ const completedList = document.querySelector("#complete-items")
 const incompleteList = document.querySelector("#incomplete-items")
 const formControl = document.querySelector(".form-control")
 const todoForm = document.querySelector("#todoForm")
-i = 0
+i = 7
 // const checkMark = document.getElementById("#flexCheckChecked")
 
 todoForm.addEventListener("submit", (e) => {
@@ -18,7 +18,18 @@ todoForm.addEventListener("submit", (e) => {
     };
     todoItems.push(newTask);
     i++;
-    console.log(newTask)
+    console.log(newTask);
+    const currentItem = document.createElement("li")
+    currentItem.classList.add("list-group-item")
+    const checkbox = document.createElement("input")
+    checkbox.type = "checkbox"
+    checkbox.classList.add("form-check-input")
+    currentItem.appendChild(checkbox)
+    const label = document.createElement("label")
+    // currentItem.innerHTML += " " + item.title
+    label.innerText = currentItem.title
+    label.classList.add("form-check-label", "ps-3")
+    currentItem.appendChild(label)
 })
 
 
