@@ -20,8 +20,8 @@ todoForm.addEventListener("submit", (e) => {
         title: formControl.value,
         complete: false,
     };
-    todoItems.push(newTask);
-    i++;
+    todoItems.push(newTask)
+    i++
 
     const currentItem = document.createElement("li")
     currentItem.classList.add("list-group-item")
@@ -51,9 +51,11 @@ todoForm.addEventListener("submit", (e) => {
     removeButton.classList.add("btn-primary")
     removeButton.type = "button"
     removeButton.style.display = "flex"
+    removeButton.style.justifyContent = "flex-end"
     currentItem.appendChild(removeButton)
     removeButton.addEventListener("click", (e) => {
         currentItem.remove(e)
+        i--
     })
 
 })
@@ -113,6 +115,7 @@ for (let item of todoItems) {
     currentItem.appendChild(removeButton)
     removeButton.addEventListener("click", (e) => {
         currentItem.remove(e)
+        i--
     })
 
 
