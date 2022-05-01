@@ -8,13 +8,21 @@ const uncompletedList = document.querySelector("#incomplete-items")
 
 for (let item of todoItems) {
     const currentItem = document.createElement("li")
-    currentItem.innerText = item.title
-    currentItem.classList.add("form-check")
     currentItem.classList.add("list-group-item")
-    if (item.completed === true) {
-        completedList.appendChild(currentItem)
-        currentItem.ID = "#flexCheckChecked"
+    const checkbox = document.createElement("input")
+    checkbox.type = "checkbox"
+    checkbox.classList.add("form-check-input")
+    currentItem.appendChild(checkbox)
+    const label = document.createElement("label")
+    // currentItem.innerHTML += " " + item.title
+    label.innerText = item.title
+    label.classList.add("form-check-label", "ps=3")
+    currentItem.appendChild(label)
 
+
+    if (item.completed) {
+        completedList.appendChild(currentItem)
+        checkbox.checked = true
     }
     else {
         uncompletedList.appendChild(currentItem)
