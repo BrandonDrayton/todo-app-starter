@@ -6,6 +6,9 @@ const completedList = document.querySelector("#complete-items")
 const incompleteList = document.querySelector("#incomplete-items")
 const formControl = document.querySelector(".form-control")
 const todoForm = document.querySelector("#todoForm")
+const addButton = document.querySelector("#button-addon2")
+addButton.style.backgroundColor = "rgb(53, 165, 218)"
+addButton.style.color = "white"
 
 
 i = 7
@@ -48,7 +51,7 @@ todoForm.addEventListener("submit", (e) => {
 
     const removeButton = document.createElement("button")
     removeButton.innerText = "Remove"
-    removeButton.classList.add("btn-primary")
+    removeButton.classList.add("btn-outline-primary")
     removeButton.type = "button"
     removeButton.style.float = "right"
     currentItem.appendChild(removeButton)
@@ -78,6 +81,8 @@ todoForm.addEventListener("submit", (e) => {
 for (let item of todoItems) {
     const currentItem = document.createElement("li")
     currentItem.classList.add("list-group-item")
+    currentItem.style.color = "white"
+    currentItem.style.backgroundColor = "rgb(53, 165, 218)"
     const checkbox = document.createElement("input")
     checkbox.type = "checkbox"
     checkbox.classList.add("form-check-input")
@@ -107,7 +112,7 @@ for (let item of todoItems) {
 
     const removeButton = document.createElement("button")
     removeButton.innerText = "Remove"
-    removeButton.classList.add("btn-primary")
+    removeButton.classList.add("btn-outline-primary")
     removeButton.type = "button"
     removeButton.style.float = "right"
     currentItem.appendChild(removeButton)
