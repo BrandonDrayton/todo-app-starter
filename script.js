@@ -9,6 +9,7 @@ const todoForm = document.querySelector("#todoForm")
 i = 7
 // const checkMark = document.getElementById("#flexCheckChecked")
 
+// Form submission currently having title undefined error message
 todoForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const newTask = {
@@ -18,7 +19,7 @@ todoForm.addEventListener("submit", (e) => {
     };
     todoItems.push(newTask);
     i++;
-    console.log(newTask);
+
     const currentItem = document.createElement("li")
     currentItem.classList.add("list-group-item")
     const checkbox = document.createElement("input")
@@ -27,9 +28,11 @@ todoForm.addEventListener("submit", (e) => {
     currentItem.appendChild(checkbox)
     const label = document.createElement("label")
     // currentItem.innerHTML += " " + item.title
-    label.innerText = currentItem.title
+    label.innerText = newTask.title
     label.classList.add("form-check-label", "ps-3")
     currentItem.appendChild(label)
+    incompleteList.appendChild(currentItem)
+    console.log(newTask)
 })
 
 
