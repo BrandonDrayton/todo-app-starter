@@ -50,8 +50,7 @@ todoForm.addEventListener("submit", (e) => {
     removeButton.innerText = "Remove"
     removeButton.classList.add("btn-primary")
     removeButton.type = "button"
-    removeButton.style.display = "flex"
-    removeButton.style.justifyContent = "flex-end"
+    removeButton.style.float = "right"
     currentItem.appendChild(removeButton)
     removeButton.addEventListener("click", (e) => {
         currentItem.remove(e)
@@ -110,8 +109,7 @@ for (let item of todoItems) {
     removeButton.innerText = "Remove"
     removeButton.classList.add("btn-primary")
     removeButton.type = "button"
-    removeButton.style.display = "flex"
-    removeButton.style.justifyContent = "flex-end"
+    removeButton.style.float = "right"
     currentItem.appendChild(removeButton)
     removeButton.addEventListener("click", (e) => {
         currentItem.remove(e)
