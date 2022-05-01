@@ -9,13 +9,16 @@ const todoForm = document.querySelector("#todoForm")
 const addButton = document.querySelector("#button-addon2")
 const cardHeader = document.querySelector(".card-header")
 const cardTitle = document.querySelector(".card-title")
+const cardTitle2 = document.querySelector(".card-title-2")
 const todoAppHeader = document.querySelector("h1")
 todoAppHeader.style.color = "grey"
+formControl.style.backgroundColor = "rgb(208, 233, 246)"
 addButton.style.backgroundColor = "rgb(53, 165, 218)"
-addButton.style.color = "white"
+addButton.style.color = "rgb(208, 233, 246)"
 cardTitle.style.textAlign = "center"
 cardTitle.style.color = "grey"
-
+cardTitle2.style.textAlign = "center"
+cardTitle2.style.color = "grey"
 
 
 i = 7
@@ -44,6 +47,10 @@ todoForm.addEventListener("submit", (e) => {
     label.innerText = newTask.title
     label.classList.add("form-check-label", "ps-3")
     currentItem.appendChild(label)
+    currentItem.style.color = "rgb(208, 233, 246)"
+    currentItem.style.backgroundColor = "rgb(53, 165, 218)"
+    checkbox.style.backgroundColor = "rgb(53, 165, 218)"
+    checkbox.style.borderColor = "rgb(208, 233, 246)"
     incompleteList.appendChild(currentItem)
     console.log(newTask)
     // window.location.reload();
@@ -59,6 +66,9 @@ todoForm.addEventListener("submit", (e) => {
     const removeButton = document.createElement("button")
     removeButton.innerText = "Remove"
     removeButton.classList.add("btn-outline-primary")
+    removeButton.style.borderColor = "rgb(53, 165, 218)"
+    removeButton.style.color = "rgb(208, 233, 246)"
+    removeButton.style.backgroundColor = "rgb(53, 165, 218)"
     removeButton.type = "button"
     removeButton.style.float = "right"
     currentItem.appendChild(removeButton)
@@ -101,6 +111,7 @@ for (let item of todoItems) {
     label.innerText = item.title
     label.classList.add("form-check-label", "ps-3")
     currentItem.appendChild(label)
+
 
 
     if (item.completed) {
