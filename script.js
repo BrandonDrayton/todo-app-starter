@@ -10,11 +10,12 @@ i = 7
 // const checkMark = document.getElementById("#flexCheckChecked")
 
 // Form submission currently having title undefined error message
+// Fixed error message by changing todoForm.value to formControl.value(it is looking for user input not the form itself)
 todoForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const newTask = {
         id: [i],
-        title: todoForm.value,
+        title: formControl.value,
         complete: false,
     };
     todoItems.push(newTask);
@@ -34,7 +35,6 @@ todoForm.addEventListener("submit", (e) => {
     incompleteList.appendChild(currentItem)
     console.log(newTask)
 })
-
 
 
 
