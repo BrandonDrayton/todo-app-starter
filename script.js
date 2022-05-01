@@ -7,6 +7,7 @@ const incompleteList = document.querySelector("#incomplete-items")
 const formControl = document.querySelector(".form-control")
 const todoForm = document.querySelector("#todoForm")
 
+
 i = 7
 // const checkMark = document.getElementById("#flexCheckChecked")
 
@@ -35,7 +36,7 @@ todoForm.addEventListener("submit", (e) => {
     currentItem.appendChild(label)
     incompleteList.appendChild(currentItem)
     console.log(newTask)
-    window.location.reload();
+    // window.location.reload();
 
 
     checkbox.addEventListener("click", (e) => {
@@ -47,11 +48,14 @@ todoForm.addEventListener("submit", (e) => {
 
     const removeButton = document.createElement("button")
     removeButton.innerText = "Remove"
+    removeButton.classList.add("btn-primary")
+    removeButton.type = "button"
+    removeButton.style.display = "flex"
+    currentItem.appendChild(removeButton)
     removeButton.addEventListener("click", (e) => {
-        if (removeButton.clicked) {
-            completedList.removeChild(removeButton)
-        } else incompleteList.removeChild(removeButton)
+        currentItem.remove(e)
     })
+
 })
 //  Tried to use this outside of loop to see if would use a click event...not exactly sure why it doesn't work
 // const checkbox = document.createElement("input")
@@ -102,11 +106,15 @@ for (let item of todoItems) {
 
     const removeButton = document.createElement("button")
     removeButton.innerText = "Remove"
+    removeButton.classList.add("btn-primary")
+    removeButton.type = "button"
+    removeButton.style.display = "flex"
+    removeButton.style.justifyContent = "flex-end"
+    currentItem.appendChild(removeButton)
     removeButton.addEventListener("click", (e) => {
-        if (removeButton.clicked) {
-            completedList.removeChild(removeButton)
-        } else incompleteList.removeChild(removeButton)
+        currentItem.remove(e)
     })
+
 
 }
 
