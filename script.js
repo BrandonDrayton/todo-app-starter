@@ -6,6 +6,7 @@ const completedList = document.querySelector("#complete-items")
 const incompleteList = document.querySelector("#incomplete-items")
 const formControl = document.querySelector(".form-control")
 const todoForm = document.querySelector("#todoForm")
+
 i = 7
 // const checkMark = document.getElementById("#flexCheckChecked")
 
@@ -34,6 +35,8 @@ todoForm.addEventListener("submit", (e) => {
     currentItem.appendChild(label)
     incompleteList.appendChild(currentItem)
     console.log(newTask)
+    window.location.reload();
+
 
     checkbox.addEventListener("click", (e) => {
         if (checkbox.checked) {
@@ -41,15 +44,23 @@ todoForm.addEventListener("submit", (e) => {
         } else incompleteList.appendChild(currentItem)
 
     })
-})
 
-const checkbox = document.createElement("input")
-checkbox.addEventListener("click", (e) => {
-    if (checkbox.checked) {
-        completedList.appendChild(e)
-    } else incompleteList.appendChild(e)
-
+    const removeButton = document.createElement("button")
+    removeButton.innerText = "Remove"
+    removeButton.addEventListener("click", (e) => {
+        if (removeButton.clicked) {
+            completedList.removeChild(removeButton)
+        } else incompleteList.removeChild(removeButton)
+    })
 })
+//  Tried to use this outside of loop to see if would use a click event...not exactly sure why it doesn't work
+// const checkbox = document.createElement("input")
+// checkbox.addEventListener("click", (e) => {
+//     if (checkbox.checked) {
+//         completedList.appendChild(e)
+//     } else incompleteList.appendChild(e)
+
+// })
 
 
 
@@ -80,6 +91,23 @@ for (let item of todoItems) {
     else {
         incompleteList.appendChild(currentItem)
     }
+    // Moved same event listener into this for loop -- Current Item could not be defined outside the loop
+    // I THINK that is why it didn't work before...remember to ask about that.
+    checkbox.addEventListener("click", (e) => {
+        if (checkbox.checked) {
+            completedList.appendChild(currentItem)
+        } else incompleteList.appendChild(currentItem)
+
+    })
+
+    const removeButton = document.createElement("button")
+    removeButton.innerText = "Remove"
+    removeButton.addEventListener("click", (e) => {
+        if (removeButton.clicked) {
+            completedList.removeChild(removeButton)
+        } else incompleteList.removeChild(removeButton)
+    })
+
 }
 
 
