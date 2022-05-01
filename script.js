@@ -1,10 +1,34 @@
 // You can access the 'todoItems' variable from the 'data.js' file, so long as 'data.js'
 // comes before 'script.js' in the HTML document
 console.log(todoItems)
-
+//  All variables outside of loops go here // 
 const completedList = document.querySelector("#complete-items")
 const incompleteList = document.querySelector("#incomplete-items")
+const formControl = document.querySelector(".form-control")
+const todoForm = document.querySelector("#todoForm")
+i = 0
 // const checkMark = document.getElementById("#flexCheckChecked")
+
+todoForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const newTask = {
+        id: [i],
+        title: todoForm.value,
+        complete: false,
+    };
+    todoItems.push(newTask);
+    i++;
+    console.log(newTask)
+})
+
+
+
+
+
+
+// Use the 'todoItems' variable to create the appropriate elements and append them onto
+// the page.
+
 
 for (let item of todoItems) {
     const currentItem = document.createElement("li")
@@ -31,5 +55,4 @@ for (let item of todoItems) {
 
 
 
-// Use the 'todoItems' variable to create the appropriate elements and append them onto
-// the page.
+
