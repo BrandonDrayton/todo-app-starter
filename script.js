@@ -19,9 +19,8 @@ cardTitle.style.textAlign = "center"
 cardTitle.style.color = "grey"
 cardTitle2.style.textAlign = "center"
 cardTitle2.style.color = "grey"
-
-
 i = 7
+
 // const checkMark = document.getElementById("#flexCheckChecked")
 
 // Form submission currently having title undefined error message
@@ -147,6 +146,56 @@ for (let item of todoItems) {
 
 }
 
+// Went to screen record and realized that the add button didn't work
+
+
+addButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    const newTask = {
+        id: [i],
+        title: formControl.value,
+        complete: false,
+    };
+    todoItems.push(newTask)
+    i++
+    console.log(newTask)
+    const currentItem = document.createElement("li")
+    currentItem.classList.add("list-group-item")
+    const checkbox = document.createElement("input")
+    checkbox.type = "checkbox"
+    checkbox.classList.add("form-check-input")
+    currentItem.appendChild(checkbox)
+    const label = document.createElement("label")
+    // currentItem.innerHTML += " " + item.title
+    label.innerText = newTask.title
+    label.classList.add("form-check-label", "ps-3")
+    currentItem.appendChild(label)
+    currentItem.style.color = "rgb(208, 233, 246)"
+    currentItem.style.backgroundColor = "rgb(53, 165, 218)"
+    checkbox.style.backgroundColor = "rgb(53, 165, 218)"
+    checkbox.style.borderColor = "rgb(208, 233, 246)"
+    incompleteList.appendChild(currentItem)
+    console.log(newTask)
+})
 
 
 
+
+// window.onbeforeunload = (e) => {
+//     localStorage.getItem("completedList", "incompleteList")
+// }
+
+// I found this while researching how to refresh a page but keep the data stored locally but couldn't get it to work
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     const ref = localStorage.getItem('todoItemsRef');
+//     if (ref) {
+//       todoItems = JSON.parse(ref);
+//       todoItems.forEach(t => {
+//         renderTodo(t);
+//       });
+//     }
+//   });
+
+
+//   localStorage.setItem('todoItems', JSON.stringify(todoItems));
